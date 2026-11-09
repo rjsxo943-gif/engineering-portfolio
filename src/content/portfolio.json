@@ -48,7 +48,8 @@
         "OpenCV"
       ],
       "media": [
-        "rf-outdoor"
+        "rf-outdoor",
+        "rf-dashboard"
       ],
       "links": [
         [

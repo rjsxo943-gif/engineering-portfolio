@@ -13,7 +13,9 @@ try{
   await page.goto(origin,{waitUntil:'networkidle'});
   assert.equal(await page.locator('article.project').count(),7);
   for(const id of ['rf-drone','digital-clock','smart-factory','lost-found','bootcamp','field-work','student-council'])assert.equal(await page.locator('#'+id).count(),1);
-  assert.equal(await page.locator('.missing').count(),expectedMissing);
+  assert.equal(await page.locator('.missing').count(),0);
+  assert(!/사진 준비 중|원본 미제공/.test(await page.locator('body').innerText()));
+  assert.equal(await page.locator('#rf-drone .gallery img').count(),1);
   assert.equal(await page.locator('.qr-pending').count(),cfg.site.qr_status==='QR_PENDING'?1:0);
   assert.equal(await page.locator('#lost-found .badge').innerText(),'진행 중');
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Horizontal overflow '+width);
@@ -31,9 +33,11 @@ try{
   results.push({width,projects:7,missingPhotos:expectedMissing,accessibilityViolations:0,horizontalOverflow:false,consoleErrors:errors});
   await page.close();
  }
- // Existing photos appear from the registry without editing components; verify via interception-free build file inventory.
+ // Print output also omits unavailable images and keeps the existing RF evidence.
  const page=await b.newPage();await page.goto(origin+'?print=1',{waitUntil:'networkidle'});
  assert.equal(await page.locator('.report-page').count(),9);
+ assert.equal(await page.locator('.missing').count(),0);
+ assert(!/사진 준비 중|원본 미제공/.test(await page.locator('body').innerText()));
  assert.equal(await page.locator('img[src*="qr"]').count(),cfg.site.qr_status==='QR_PENDING'?0:1);
  fs.writeFileSync('.artifacts/browser-results.json',JSON.stringify(results,null,2));
  console.log('PASS: 375/768/1440px, 7 sections, anchors, poster, PDF download, no browser errors; 9-page report; no premature QR');

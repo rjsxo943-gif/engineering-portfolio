@@ -46,7 +46,7 @@ for(const [i,e]of guide.entries.entries()){
   text+='<details>\n<summary>졸업작품 팀 포스터</summary>\n\n';
   text+=`[![${media.poster.alt}](../../public/${media.poster.path})](${media.poster.source})\n\n팀 전체 결과이며, 본인 역할은 위 개인 수행 범위에 명시했습니다.\n\n</details>\n\n`;
  }
- const supplied=p.media.filter(id=>fs.existsSync('public/'+media[id].path));
+ const supplied=p.media.filter(id=>!(e.id==='rf-drone'&&id==='rf-dashboard')&&fs.existsSync('public/'+media[id].path));
  if(supplied.length){text+='## 관련 사진\n\n';for(const id of supplied)text+=`![${media[id].alt}](../../public/${media[id].path})\n\n`;}
  if(p.links.length)text+='## 관련 링크\n\n'+bullet(p.links.map(([key,label])=>`[${label}](${links[key]})`))+'\n\n';
  text+=`**사용·학습 기술:** ${p.tags.join(' · ')}\n\n---\n\n기록 기준 ${site.as_of}. `;
