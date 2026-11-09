@@ -1,0 +1,36 @@
+name: Validate portfolio
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Korean fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+      - name: PDF and browser validation
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e "import {chromium} from 'playwright';console.log(chromium.executablePath())")"
+          npm run preview -- --port 4173 --strictPort > /tmp/portfolio-preview.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill "$PREVIEW_PID"' EXIT
+          node scripts/wait.mjs
+          npm run pdf
+          npm run build
+          npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-validation
+          path: |
+            .artifacts/
+            public/downloads/engineering-portfolio.pdf

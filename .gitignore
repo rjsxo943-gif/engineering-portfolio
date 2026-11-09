@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.artifacts/
+/private_sources/
+/handoff/
+/attachments/
+/reference-rf/
+.env
+.env.*
+*.local
+__pycache__/

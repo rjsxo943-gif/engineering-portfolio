@@ -1,0 +1,42 @@
+site:
+  title: Engineering Portfolio
+  name: 김건태
+  subtitle: 전자공학 · 하드웨어 · RF · 자동화 · AI
+  as_of: '2026-11-09'
+  repository: rjsxo943-gif/engineering-portfolio
+  base: /engineering-portfolio/
+  public_url: null
+  qr_status: QR_PENDING
+  pdf: downloads/engineering-portfolio.pdf
+  qr_svg: downloads/portfolio-qr.svg
+  qr_png: downloads/portfolio-qr.png
+  github: https://github.com/rjsxo943-gif
+media:
+  rf-outdoor:
+    path: public_assets/rf-outdoor-test.jpg
+    alt: Pluto+ SDR와 패치 안테나를 사용한 RF 야외 시험 장비
+  clock-front:
+    path: public_assets/clock-front.jpg
+    alt: TTL/CMOS 디지털 시계 완성 회로 앞면
+  clock-rear:
+    path: public_assets/clock-rear-test.jpg
+    alt: 디지털 시계 뒷면 배선·납땜 및 DC 전원공급기
+  automation:
+    path: public_assets/automation-practice.jpg
+    alt: 교육에서 사용한 PLC·공압 실습 장비
+  electrical:
+    path: public_assets/field-electrical.jpg
+    alt: 전기 시공의 전선관·배선박스 현장
+  interior:
+    path: public_assets/field-interior.jpg
+    alt: 내장 시공 현장의 자재 적치
+  poster:
+    path: public_assets/graduation-poster.webp
+    alt: RF 졸업작품 팀 포스터 — 안테나 설계와 RF 수신·소프트웨어 시스템 및 결과
+    source: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/assets/graduation_poster.png
+links:
+  rf: https://github.com/rjsxo943-gif/rf-drone-detection-capstone
+  validation: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/docs/results/final_validation_summary.md
+  story: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/docs/interview/project_story.md
+  architecture: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/assets/system_architecture_from_poster.png
+  lostfound: https://github.com/agentops-lostfound/ai-lostfound-tower

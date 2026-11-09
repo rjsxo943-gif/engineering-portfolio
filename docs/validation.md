@@ -1,0 +1,43 @@
+# 로컬 검증 결과
+
+검증일: 2026-11-09. 대상: `/workspace/engineering-portfolio`. 공개 배포를 수행하지 않은 현재 인스턴스의 결과입니다.
+
+| 점검 | 결과 |
+|---|---|
+| AGENTS.md | 기존 작업 공간과 첨부 자료에 없음 |
+| 입력 검토 | 시작 안내 → CODEX_PROMPT → 설정 → 마스터 초안 → 비공개 경험 MD·PDF 순으로 검토. 지정 RF 공개 문서 3개·포스터도 확보·검토 |
+| npm ci | lockfile 기반 재설치 성공. `.npmrc`로 쓰기 가능한 프로젝트 내부 캐시 지정 |
+| 도구 | Node 24.22.1, npm 11.9.0, Vite 8.3.6, TypeScript 5.9.3, YAML 2.9.1, 시스템 Chromium |
+| npm run build | 콘텐츠 검사·TypeScript·프로덕션 빌드 통과 |
+| 개발 서버 | Vite dev에서 7개 섹션 렌더링·pageerror 없음 |
+| 브라우저 | Chromium 375 / 768 / 1440px 통과 |
+| 기능 | 7개 필수 섹션, 내부 anchor, 포스터 열기·이미지 디코드, PDF 다운로드 200 및 PDF 시그니처 통과 |
+| 레이아웃 | 세 화면 너비 모두 가로 넘침 없음. 모바일·PC 첫 화면과 PDF RF 페이지 육안 확인 |
+| 접근성 | axe-core WCAG 2A·2AA·2.1AA 자동 검사에서 3개 화면 너비 모두 위반 0건. 수동 스크린리더 전체 검증은 미실행 |
+| 콘솔 | 세 화면 너비 모두 console error·pageerror 0건 |
+| PDF | A4 9쪽 생성. 모든 페이지 콘텐츠가 하단 footer와 겹치지 않음. 포스터 전용 페이지 포함 |
+| PDF 내용 | RF·시계·K2·분실물·부트캠프·학생회·NCT·아성설비·대유기전 및 QR_PENDING 확인 |
+| 사진 | 미제공 6장, 명시적 경고·안내 영역 표시. 깨진 이미지 요청 없음 |
+| RF 포스터 | 지정 GitHub 공개 원본 다운로드, WebP 변환본 수록 및 출처 링크. 팀 성과 표기 유지 |
+| 외부 링크 | YAML links 5개 모두 HTTP 200. RF 원본 문서·포스터도 직접 읽기 성공 |
+| 개인정보 경계 | ZIP·경험 원본·원본 PDF는 체크아웃 밖 보존. public/dist 및 PDF에서 private_sources·내부 원본 경로·비공개 현장명 유출 검사 통과 |
+| 산출물 일치 | dist 다운로드 PDF와 public PDF 바이트 일치 |
+| 의존성 | npm audit 전체 개발 의존성 포함 0건. 최초 Vite/YAML 권고는 수정 버전으로 갱신 후 해소 |
+| QR 사전 차단 | URL 없는 npm run qr가 예상 exit 2로 QR_PENDING 안내. PNG/SVG 생성 없음 |
+| 실제 QR 생성·스캔 | 미실행. 실제 홈 URL 확정·HTTPS 검증·사용자 배포 승인 전이기 때문 |
+| GitHub Actions | validate 및 수동 Pages workflow 작성. GitHub 원격 실행은 미실행 |
+| GitHub 생성·push·Pages | 모두 미실행. 사용자 승인 대기 |
+
+## 수정 후 재검증한 문제
+
+- 초기 TypeScript 빌드의 Node 타입·Disposable 타입 누락: Node 타입과 lib 추가 후 빌드 성공.
+- PDF 첫 버전 포스터 설명의 footer 겹침: 인쇄 포스터 크기 조정, 교육/K2를 분리한 9쪽 구성으로 수정 후 전체 페이지 넘침 검사 통과.
+- 첫 브라우저 실행 favicon 404: 로컬 SVG favicon 추가 후 콘솔 오류 0건.
+- 지연 로딩 포스터를 디코드 전에 검사하던 테스트: 실제 이미지 decode 완료를 기다리도록 수정 후 통과.
+- Vite/YAML 의존성 보안 권고: Vite 8.3.6·YAML 2.9.1로 갱신 후 lockfile 재설치·빌드·PDF·브라우저 전체 재검증.
+
+## 로컬 증거 파일
+
+`.artifacts/browser-results.json`, `pdf-layout.json`, `privacy-pdf-result.json`, `dev-result.json`, `external-links.json`, `dependency-audit.json`과 화면 너비별 스크린샷이 있습니다. `.artifacts/`는 Git 및 배포 제외 대상입니다. 현재 자료에 없는 사진은 생성·대체하지 않았습니다.
+
+실제 홈페이지 접속, Pages 원격 실행, QR 성공 경로·실제 URL 스캔, 스마트폰 인쇄물 스캔은 아직 검증하지 않았습니다. 배포 전 PDF는 QR 대기 안내를 포함한 버전입니다. 확인이 필요한 사실·사진은 `missing-materials.md`에서 별도 관리합니다.
