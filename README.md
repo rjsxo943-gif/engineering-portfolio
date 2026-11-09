@@ -1,69 +1,81 @@
-# 김건태 · 종합 엔지니어 포트폴리오
+# 김건태 | 엔지니어링 포트폴리오
 
-> GitHub main 업로드 완료. 첫 Pages 실행은 최초 활성화 권한 부족으로 중단되었습니다. 저장소 소유자가 [Pages 설정](https://github.com/rjsxo943-gif/engineering-portfolio/settings/pages)에서 Source를 GitHub Actions로 선택하고 배포 workflow를 재실행해야 합니다. 실제 홈페이지·QR은 아직 검증 전입니다.
+**전자공학 · 회로 구현 · RF 신호처리 · 자동화·비전 AI**
 
-전자공학 기반 RF·회로·자동화·AI 프로젝트, 교육, 현장 실무와 조직 운영을 담은 한국어 정적 웹사이트입니다. 기록 기준은 **2026-11-09**이며, 날짜가 지나도 진행 중 활동을 자동으로 완료 처리하지 않습니다.
+전자공학을 바탕으로 실물 회로를 구현하고, SDR 신호 수집부터 판단·방향 추정·시각화까지 연결했습니다. 전기·설비 시공 현장에서 작업의 기본을 익혔으며, 현재는 PLC·로봇 교육과 비전 AI 팀 프로젝트로 경험을 확장하고 있습니다.
 
-## 시작
+**[종합 포트폴리오 PDF 보기 · 9쪽](public/downloads/engineering-portfolio.pdf)** · [PDF 다운로드](https://raw.githubusercontent.com/rjsxo943-gif/engineering-portfolio/main/public/downloads/engineering-portfolio.pdf) · [RF 졸업작품 상세](https://github.com/rjsxo943-gif/rf-drone-detection-capstone)
 
-Node.js 24와 npm을 사용합니다. 기존 체크아웃 `/workspace/engineering-portfolio`에서 작업하세요. 클라우드 작업은 이미 격리되어 있으므로 별도 Git worktree를 만들 필요가 없습니다.
+## 주요 프로젝트
 
-```bash
-npm ci
-npm run dev
-```
+### 01. SDR 기반 RF 드론 탐지 및 방향 추정
 
-기본 base는 `/engineering-portfolio/`입니다. 개발 서버에서 이 경로를 열어 확인합니다. 빌드 및 검증:
+**졸업작품 완료 · 2026.03–2026.06**
 
-```bash
-npm run build
-npm run preview -- --port 4173 --strictPort
-# 다른 터미널, 같은 저장소 디렉터리에서
-npm run pdf
-npm run build  # 방금 만든 PDF를 dist에 반영
-npm test
-```
+Pluto+ SDR의 2채널 IQ 신호로 드론 관련 RF activity를 탐지하고, 위상차 기반 신호 도래 방향(AoA)을 추정한 프로젝트입니다.
 
-`npm run pdf`와 브라우저 테스트는 Chromium 및 한국어 글꼴이 필요합니다. 현재 클라우드에는 `/usr/bin/chromium`과 Noto CJK가 준비되어 있습니다. 다른 머신에서는 `npx playwright install --with-deps chromium` 후 `CHROMIUM_PATH`에 설치된 실행 경로를 지정합니다. `scripts/browser.mjs`가 경로를 읽습니다. `SITE_ORIGIN`으로 내부 검증용 서버 주소를 변경할 수 있습니다.
+- **본인 기여:** IQ 수신·전처리, Gain·위상 보정, STFT·CNN 추론, 후보 검증, AoA·coherence 검증, OpenCV 실시간 화면 통합 및 야외 시험
+- **문제 해결:** 별도 날짜에 수집한 외부 데이터 1,800개를 Gain별로 분석하고 판단 기준을 조정해, **동일 데이터 재평가에서 오탐 300건 → 12건**으로 감소
+- **팀 결과:** 안테나 하드웨어와 수신·소프트웨어를 결합한 RF 탐지 계층 prototype 구현. 안테나 설계·제작은 위 개인 기여 범위와 구분
 
-## 파일 구성과 편집
+Gain별 기준의 오탐 개선은 RawNoiseGate·voting 실험과 별도 비교입니다. 거리 출력은 정밀 측정이 아닌 실험적 구간 표시이며, 다양한 환경에서의 일반화·장시간 운용은 추가 검증 과제입니다.
 
-| 파일 | 용도 |
+[프로젝트 README](https://github.com/rjsxo943-gif/rf-drone-detection-capstone) · [최종 시스템 검증](https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/docs/results/final_validation_summary.md) · [팀 포스터](https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/assets/graduation_poster.png)
+
+### 02. TTL/CMOS 다기능 디지털 시계
+
+**완료 · 2025.11–2025.12**
+
+시·분·초 카운터, AM/PM·알람·입력 제어 회로를 설계하고 Proteus 시뮬레이션, 만능기판 배선·납땜과 시험을 수행했습니다.
+
+- **전환 오류 진단:** 59분 → 00분 전환 시 시 카운터가 중복 증가하는 현상을 계측하고, 자리올림 펄스·글리치와 RC 시정수를 확인해 대응
+- **과전류 진단:** 전원 차단 후 도통시험·IC 분리 및 단독시험으로 손상 소자를 확인·교체하고, 공급전류와 주요 기능 재검증
+
+### 03. K2 스마트팩토리 비전 검사
+
+**교육 내 팀 프로젝트 · 2026.09–2026.10 · 최종 완료 수준 확인 중**
+
+PLC·로봇·컨베이어 기반 조립·검사 공정을 구성하는 팀 프로젝트에서 **비전·AI 검출 파트**에 참여했습니다. 최종 검사 탑뷰 영상의 부품 누락·위치 확인을 위한 YOLO 활용 검토·개발과 검사 신호 인터페이스 정의에 참여했습니다. 전체 공정 구축을 개인 성과로 표시하지 않으며, 최종 시연·검출 성능은 확인 전입니다.
+
+### 04. AI 분실물 관제탑
+
+**진행 중 · 2026.11.02 시작**
+
+팀은 이미지 등록 → 특징·OCR 추출 → 후보 검색 → 직원 확인 → SO-101 로봇 반환을 연결하는 실험적 서비스를 목표로 합니다.
+
+- **본인 담당:** YOLO 탑뷰 검출, ArUco·호모그래피 좌표 변환, 비전 특징 매칭 및 로봇 좌표 보정·집기 연계
+- **현재 수행:** 비전 어댑터·테스트와 Qwen 연계 진단 수행, 관제탑–로봇의 위치·자세 명령 연계 진행
+
+최종 반환 서비스의 통합 완성·실증은 아직 완료되지 않았습니다.
+
+[팀 저장소](https://github.com/agentops-lostfound/ai-lostfound-tower)
+
+## 교육 · 현장 · 조직 운영
+
+**Intel Edge AI DX / 피지컬 AI 부트캠프 — 교육 실습·수강 중**  
+GX Works2 기반 PLC 래더, 센서·공압·구동장치, 뉴로메카 6축 로봇의 Conty·Python 예제, PLC–로봇 핸드셰이크를 학습·실습했습니다. 강사 예제 실습과 독립적인 팀 프로젝트 개발을 구분합니다.
+
+**전기·설비·내장 현장 — 시공 참여 경험**  
+대유기전에서는 전기 배관·배선·결선과 손상 관로 복구, 아성설비에서는 급수·배수·소방 배관 시공 및 통수·누수 점검, NCT에서는 자재 관리와 내장 시공을 경험했습니다. 현장 작업 참여 경험이며 상용 설계·산업설비 유지보수 경력을 의미하지 않습니다.
+
+**전자공학과 학생회 총무부장 — 2025.01–2025.12**  
+연간 약 **2,200만 원 규모 예산과 8개 주요 행사**의 재정 기록을 관리했습니다. 본인은 예산 편성·증빙·환불 자료 정리와 감사자료집 제작을 담당하고, 부학회장·학회장·대의원의 검토·결재 절차를 운영했습니다. 행사는 학생회 조직이 함께 운영했습니다.
+
+## 기술 경험
+
+| 경험 수준 | 도구·기술 |
 |---|---|
-| `portfolio.config.yaml` | 공개 사이트 설정, 링크, 사진 경로, 실제 배포 URL·QR 상태 |
-| `src/content/portfolio.json` | 공개용 문안, 개인·팀 역할, 상태, 기술 수준, 표시 순서 |
-| `src/main.ts`, `src/style.css` | 웹·9쪽 보고서 화면 및 인쇄 스타일 |
-| `public/public_assets/` | 공개 검토를 마친 사진과 RF 공개 포스터 복제본 |
-| `public/downloads/engineering-portfolio.pdf` | 생성된 9쪽 제출용 PDF |
-| `scripts/` | 콘텐츠 검사, PDF·QR 생성, 서버 대기 |
-| `tests/browser.mjs` | 모바일·태블릿·PC 기능 검증 |
-| `docs/` | 사실 검토, 누락 목록, 검증·배포 기록, 유지보수 |
+| 직접 사용 | Python, OpenCV, Pluto+ SDR, STFT·CNN, 위상차 AoA, TTL/CMOS, Proteus, 배선·납땜·계측 |
+| 프로젝트 진행 중 | YOLO, ArUco, 호모그래피, 비전 특징 매칭, SO-101 연계 |
+| 교육·예제 실습 | GX Works2, PLC 래더, 공압, Conty 3.3, Python 로봇 제어, CC-Link |
 
-사진이 없으면 안내 영역을 표시합니다. 사진 추가 후 **다시 빌드하고 PDF를 재생성**하면 YAML 경로의 실제 파일이 반영됩니다. 컴포넌트를 수정할 필요가 없습니다. 생성형 이미지나 스톡사진은 사용하지 않았습니다.
+---
 
-## 개인정보 경계
+경험·진행 상태 기준: **2026.11.09**. 프로젝트별 개인 기여, 팀 범위와 검증 내용은 [종합 PDF](public/downloads/engineering-portfolio.pdf)에 정리했습니다.
 
-경험 원본·첨부 ZIP·원본 경력 PDF는 저장소 **밖** `/workspace/handoff`, `/workspace/attachments`에 남겼습니다. 사이트는 검토된 JSON/YAML과 `public/`만 사용합니다. `private_sources/`는 Git 제외 대상이며 빌드에서도 읽지 않습니다. `.gitignore`는 강제 추가(`git add -f`)나 이미 추적된 파일을 막지 못하므로 공개 전 파일 목록 확인이 필요합니다. 원본·재무 증빙·계좌·개인 연락처·현장명은 올리지 않습니다.
+<details>
+<summary>사이트 개발·유지보수 안내</summary>
 
-RF 포스터는 사용자 지정 공개 GitHub 원본을 내려받아 웹용 WebP 복제본으로 수록했습니다. 원본은 변경하지 않았으며 저자 표기·팀 전체 결과를 유지합니다. 출처는 YAML 및 화면에 연결했습니다. RF 포스터의 안테나 성과를 개인 기여로 주장하지 않습니다.
+[개발 환경](docs/development.md) · [콘텐츠·사진 관리](docs/maintenance.md) · [배포 절차](docs/deployment.md)
 
-## 배포와 QR
-
-사용자가 2026-11-09 공개 업로드·배포를 승인했습니다. 대상은 연결된 `rjsxo943-gif/engineering-portfolio`이며, Pages 경로는 `/engineering-portfolio/`입니다. 신규 `portfolio` 저장소 생성 API가 차단되어 기존 빈 저장소를 사용합니다. main push와 수동 workflow 실행으로 배포합니다.
-
-실제 HTTPS 접속 검증 전까지 공개 URL은 null, QR은 QR_PENDING을 유지합니다. 상세 절차는 [배포 문서](docs/deployment.md)에 있습니다.
-
-실제 HTTPS 홈페이지가 열린 다음:
-
-```bash
-npm run qr -- --url https://rjsxo943-gif.github.io/engineering-portfolio/
-npm run build
-# 위 preview 서버가 실행 중이어야 합니다.
-npm run pdf
-npm run build
-npm test
-```
-
-이 주소는 승인 후 실제 해당 위치에 배포됐을 때만 사용합니다. QR 도구는 HTTP 200, 홈페이지 제목, 리다이렉트 도착 URL을 검사한 후 1200px PNG와 SVG를 생성하고 두 형식을 디코딩해 URL 일치를 확인합니다. QR 텍스트 주소는 화면·PDF에서 별도로 표시합니다. 실제 QR 생성·스캔 검증은 아직 실행하지 않았습니다. 배포 전 PDF에는 QR 대기 안내만 수록했습니다.
-
-[유지보수](docs/maintenance.md) · [사실 검토](docs/fact_check.md) · [누락 자료](docs/missing-materials.md) · [검증 결과](docs/validation.md)
+</details>
