@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import YAML from 'yaml';
 import axe from 'axe-core';
 const cfg=YAML.parse(fs.readFileSync('portfolio.config.yaml','utf8'));
-const expectedMissing=Object.entries(cfg.media).filter(([id,m])=>id!=='poster'&&!fs.existsSync('public/'+m.path)).length;
+const expectedMissing=Object.entries(cfg.media).filter(([id,m])=>!['poster','rf-dashboard'].includes(id)&&!fs.existsSync('public/'+m.path)).length;
 import {browser,origin} from '../scripts/browser.mjs';
 const b=await browser();const results=[];
 try{

@@ -1,3 +1,17 @@
+# GitHub 포트폴리오 구성 개선 검증
+
+2026-11-09: README를 핵심 경험 요약·프로젝트 탐색표·RF 공개 화면·PDF 목차·QR 다운로드로 재구성했습니다. 공개 콘텐츠에서 7개 경험 상세 문서와 읽기 안내를 생성했습니다.
+
+- `npm run build`: 콘텐츠·문서 동기화·TypeScript·Vite 빌드 통과.
+- `npm test`: 375/768/1440px에서 기존 7개 섹션·PDF·포스터·접근성·콘솔 검사 통과.
+- README와 경험 문서 9개에서 로컬 링크 62개 대상 파일 확인.
+- 저장소 QR PNG 디코딩 결과가 `https://github.com/rjsxo943-gif/engineering-portfolio`와 일치. PNG/SVG는 이전 스캔 검증한 원본과 바이트 일치 확인.
+- RF 화면은 원본 공개 저장소의 `assets/dashboard_scan_precision.png`를 변경 없이 수록. 왼쪽 UI 데모와 오른쪽 신호 화면을 구분하고 출처 표기. 누락 실물 사진을 대체하지 않음.
+- 홈페이지 QR 상태는 별도 QR_PENDING 유지. 저장소 QR과 구분.
+- 사진 6장·기존 내용 확인 사항·Pages 최초 활성화 제한은 이전 기록과 같음.
+
+아래는 이전 단계의 검증 기록입니다.
+
 # 최신 GitHub 업로드·배포 상태
 
 2026-11-09 사용자 공개 업로드 승인 후 `rjsxo943-gif/engineering-portfolio` main에 커밋 `2ef7d43abc582c7e9f94695e9ccdb86d87066133` push 성공. 비공개 원본 제외, PDF 포함 32개 파일 업로드. GitHub 이메일 보호 정책에 맞춰 커밋 이메일은 noreply로 사용했습니다.

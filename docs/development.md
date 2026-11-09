@@ -29,6 +29,7 @@ npm test
 | 파일 | 용도 |
 |---|---|
 | `portfolio.config.yaml` | 공개 사이트 설정, 링크, 사진 경로, 실제 배포 URL·QR 상태 |
+| `src/content/repository.json` | README 소개·요약·상세 문서 순서 |
 | `src/content/portfolio.json` | 공개용 문안, 개인·팀 역할, 상태, 기술 수준, 표시 순서 |
 | `src/main.ts`, `src/style.css` | 웹·9쪽 보고서 화면 및 인쇄 스타일 |
 | `public/public_assets/` | 공개 검토를 마친 사진과 RF 공개 포스터 복제본 |
@@ -47,3 +48,7 @@ RF 포스터는 사용자 지정 공개 GitHub 원본을 내려받아 웹용 Web
 
 
 [유지보수](maintenance.md) · [배포 절차와 상태](deployment.md) · [검증 기록](validation.md)
+
+## GitHub 문서 갱신
+
+`npm run docs`로 README와 7개 경험 상세 문서를 생성하고 `npm run docs:check`로 동기화를 검사합니다. 공개 콘텐츠만 읽으며 비공개 원본을 문서에 복사하지 않습니다.

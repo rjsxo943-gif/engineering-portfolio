@@ -11,6 +11,9 @@ site:
   qr_svg: downloads/portfolio-qr.svg
   qr_png: downloads/portfolio-qr.png
   github: https://github.com/rjsxo943-gif
+  repository_url: https://github.com/rjsxo943-gif/engineering-portfolio
+  repository_qr_svg: downloads/github-repository-qr.svg
+  repository_qr_png: downloads/github-repository-qr.png
 media:
   rf-outdoor:
     path: public_assets/rf-outdoor-test.jpg
@@ -34,6 +37,10 @@ media:
     path: public_assets/graduation-poster.webp
     alt: RF 졸업작품 팀 포스터 — 안테나 설계와 RF 수신·소프트웨어 시스템 및 결과
     source: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/assets/graduation_poster.png
+  rf-dashboard:
+    path: public_assets/rf-dashboard.png
+    alt: 'RF 공개 프로젝트 화면: 왼쪽 scan·precision UI 데모, 오른쪽 RF 신호 확인 화면'
+    source: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/assets/dashboard_scan_precision.png
 links:
   rf: https://github.com/rjsxo943-gif/rf-drone-detection-capstone
   validation: https://github.com/rjsxo943-gif/rf-drone-detection-capstone/blob/main/docs/results/final_validation_summary.md
