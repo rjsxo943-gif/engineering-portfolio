@@ -1,3 +1,13 @@
+# 최신 GitHub 업로드·배포 상태
+
+2026-11-09 사용자 공개 업로드 승인 후 `rjsxo943-gif/engineering-portfolio` main에 커밋 `2ef7d43abc582c7e9f94695e9ccdb86d87066133` push 성공. 비공개 원본 제외, PDF 포함 32개 파일 업로드. GitHub 이메일 보호 정책에 맞춰 커밋 이메일은 noreply로 사용했습니다.
+
+[Pages 실행 #1](https://github.com/rjsxo943-gif/engineering-portfolio/actions/runs/42573129730)은 빌드 후 Pages 최초 활성화에서 실패했습니다: `Create Pages site failed. Error: Resource not accessible by integration`. 저장소 소유자가 Settings → Pages → Source: GitHub Actions를 선택한 뒤 Deploy workflow를 수동 재실행해야 합니다.
+
+현재 클라우드에서 api.github.com과 rjsxo943-gif.github.io 접근도 제한되어 해당 도메인 추가를 환경 설정 초안에 저장했습니다. 저장소 push 성공과 홈페이지 공개·QR 성공을 구분합니다. 실제 공개 URL은 아직 null, QR_PENDING입니다.
+
+아래는 배포 승인 이전 로컬 검증 기록입니다. 승인 대기라는 문장은 당시의 상태이며 현재는 위 최신 기록을 우선합니다.
+
 # 로컬 검증 결과
 
 검증일: 2026-11-09. 대상: `/workspace/engineering-portfolio`. 공개 배포를 수행하지 않은 현재 인스턴스의 결과입니다.

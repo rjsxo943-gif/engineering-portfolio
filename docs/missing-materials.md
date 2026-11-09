@@ -25,4 +25,4 @@
 
 ## 외부 공개·QR
 
-대상 공개 저장소 생성/push/배포 승인이 필요합니다. 실제 홈 URL 확정·HTTPS 도달 전에는 QR을 생성하지 않습니다. 현재 URL null, QR_PENDING, PNG/SVG 미생성, 실제 URL 스캔 검증 미실행입니다. PDF는 QR 대기 안내가 있는 제출용 사전 배포본입니다. 사진·확인 자료와 최종 QR을 반영하면 증빙이 보완됩니다.
+공개 업로드·배포 승인은 받았고 기존 engineering-portfolio 저장소에 push를 완료했습니다. Pages 최초 활성화는 저장소 소유자의 설정 변경이 필요합니다. 실제 홈 URL 확정·HTTPS 도달 전에는 QR을 생성하지 않습니다. 현재 URL null, QR_PENDING, PNG/SVG 미생성, 실제 URL 스캔 검증 미실행입니다. PDF는 QR 대기 안내가 있는 제출용 사전 배포본입니다. 사진·확인 자료와 최종 QR을 반영하면 증빙이 보완됩니다.

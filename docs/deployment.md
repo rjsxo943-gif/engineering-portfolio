@@ -35,3 +35,7 @@ npm test
 ```
 
 QR은 홈페이지 제목·도착 URL·HTTP 200을 확인한 다음 1200px PNG와 SVG를 생성하며 두 형식의 스캔 일치를 검사합니다. 생성한 YAML·이미지·PDF를 commit/push하여 재배포합니다. URL은 RF GitHub가 아닌 종합 포트폴리오 홈입니다. 비공개 경험 원본·ZIP·증빙은 업로드하지 않습니다.
+
+## 첫 원격 실행 결과
+
+main 업로드 성공 후 [실행 #1](https://github.com/rjsxo943-gif/engineering-portfolio/actions/runs/42573129730)에서 Pages 활성화 권한 부족(`Resource not accessible by integration`)을 확인했습니다. [Pages 설정](https://github.com/rjsxo943-gif/engineering-portfolio/settings/pages)에서 Source를 GitHub Actions로 선택한 뒤 [배포 workflow](https://github.com/rjsxo943-gif/engineering-portfolio/actions/workflows/pages.yml)의 Run workflow를 실행하면 됩니다.

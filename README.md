@@ -1,5 +1,7 @@
 # 김건태 · 종합 엔지니어 포트폴리오
 
+> GitHub main 업로드 완료. 첫 Pages 실행은 최초 활성화 권한 부족으로 중단되었습니다. 저장소 소유자가 [Pages 설정](https://github.com/rjsxo943-gif/engineering-portfolio/settings/pages)에서 Source를 GitHub Actions로 선택하고 배포 workflow를 재실행해야 합니다. 실제 홈페이지·QR은 아직 검증 전입니다.
+
 전자공학 기반 RF·회로·자동화·AI 프로젝트, 교육, 현장 실무와 조직 운영을 담은 한국어 정적 웹사이트입니다. 기록 기준은 **2026-11-09**이며, 날짜가 지나도 진행 중 활동을 자동으로 완료 처리하지 않습니다.
 
 ## 시작
