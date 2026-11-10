@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+ <title id="title">김건태 엔지니어링 포트폴리오</title><desc id="desc">회로에서 신호까지, 동작으로 답합니다. 전자공학, 하드웨어, RF 신호처리, 제어와 비전 AI.</desc>
+ <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#9ee0cc" stroke-opacity=".07"/></pattern></defs>
+ <rect width="1280" height="420" fill="#112d35"/><rect width="1280" height="420" fill="url(#grid)"/>
+ <g font-family="Malgun Gothic,Apple SD Gothic Neo,Arial,sans-serif">
+ <circle cx="57" cy="49" r="4" fill="#92e2ca"/><text x="73" y="53" fill="#b2d0c6" font-size="12" letter-spacing="2">KIM GEONTAE / ENGINEERING PORTFOLIO</text>
+ <text x="55" y="166" fill="#f4f8f5" font-size="47" font-weight="700" letter-spacing="-2">회로에서 신호까지,</text><text x="55" y="234" fill="#92e2ca" font-size="47" font-weight="700" letter-spacing="-2">동작으로 답합니다.</text>
+ <text x="57" y="292" fill="#bed2ca" font-size="15">회로 구현 · RF 신호처리 · 제어·비전 AI · 현장 협업</text>
+ <path d="M55 343H1225" stroke="#648b80" stroke-opacity=".4"/><text x="57" y="380" fill="#abc5bb" font-size="11" letter-spacing="2">SELECTED WORK &amp; EXPERIENCE</text><text x="1138" y="380" fill="#abc5bb" font-size="11">2026</text>
+ <g fill="none" stroke="#92e2ca" stroke-opacity=".55"><rect x="850" y="110" width="280" height="170" rx="2"/><rect x="890" y="145" width="200" height="100"/><path d="M810 152H850M810 192H890M810 232H850M1130 152H1170M1090 192H1170M1130 232H1170"/><path d="M918 198h22l12-24 20 48 18-36 13 12h58" stroke-width="2"/></g>
+ <text x="882" y="316" fill="#a5c6b8" font-size="10" letter-spacing="3">HARDWARE ↔ SOFTWARE</text>
+ </g>
+</svg>

@@ -12,10 +12,11 @@ const pdf=`public/${site.pdf}`;
 const repo=site.repository_url;
 const raw=repo.replace('https://github.com/','https://raw.githubusercontent.com/')+'/main/';
 const out=new Map();
-let md=`# ${guide.title}\n\n**${guide.subtitle}**\n\n${guide.intro}\n\n`;
+let md=`![김건태 엔지니어링 포트폴리오 — 회로에서 신호까지, 동작으로 답합니다.](public/portfolio-banner.svg)\n\n# ${guide.title}\n\n**${guide.subtitle}**\n\n${guide.intro}\n\n`;
 md+=`**[종합 포트폴리오 PDF · 9쪽](${pdf})** · [PDF 원본 다운로드](${raw+pdf}) · [전체 경험 상세](docs/experience/README.md)\n\n`;
 md+='## 핵심 경험\n\n';
-for(const h of guide.highlights)md+=`**[${h.title}](${doc(h.project)})**<br>\n${h.text}\n\n`;
+md+='| RF · 신호 분석 | 회로 · 실물 구현 | 운영 · 기록과 협업 |\n|:---|:---|:---|\n';
+md+=guide.highlights.map(h=>`**[${h.title}](${doc(h.project)})**<br><br>${h.text}`).join(' | ')+' |\n\n';
 md+='## 프로젝트\n\n| 프로젝트 | 본인 역할 | 상태¹ |\n|---|---|---|\n';
 for(const e of guide.entries.slice(0,4)){const p=projects.get(e.id);md+=`| [${e.label}](${doc(e.id)}) | ${cell(e.focus)} | ${cell(p.status)} |\n`;}
 md+='\n### RF 탐지 시스템 화면\n\n';
