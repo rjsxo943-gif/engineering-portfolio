@@ -7,6 +7,19 @@
 - URL은 실제 HTTPS 200 확인 후 YAML `site.public_url`에 기록합니다.
 - main 브랜치 push 또는 Pages workflow 수동 실행으로 배포합니다. configure-pages가 Pages 활성화를 요청합니다. GitHub 권한 정책이 이를 제한하면 저장소 Settings → Pages → GitHub Actions를 선택해야 합니다.
 
+## 2026-11-10 확인된 차단 요인과 소유자 조치
+
+2026-11-10 원격 저장소의 최근 Actions 목록을 확인한 결과, Pages 실행 기록은 2026-11-09의 최초 실패 1건뿐입니다. 이후 3개 업데이트 커밋의 메시지에 `[skip ci]`가 포함되어 새 배포 실행이 생성되지 않았습니다. **저장소에 코드가 있다는 것과 공개 사이트가 열리는 것은 별개입니다.**
+
+소유자 계정으로 다음 순서를 진행합니다.
+
+1. [Settings → Pages](https://github.com/rjsxo943-gif/engineering-portfolio/settings/pages)를 열고 **Build and deployment → Source: GitHub Actions**로 설정합니다. 기존에 같은 옵션이 선택되어 있다면 그대로 둡니다.
+2. [Deploy portfolio to GitHub Pages](https://github.com/rjsxo943-gif/engineering-portfolio/actions/workflows/pages.yml)에서 **Run workflow → main → Run workflow**를 실행합니다. `main`에 일반 커밋이 push되어도 실행됩니다. 배포를 원하는 변경에는 `[skip ci]`를 사용하지 않습니다.
+3. 빌드와 배포가 모두 성공했는지 확인하고, `https://rjsxo943-gif.github.io/engineering-portfolio/`에서 실제 페이지가 열리는지 확인합니다. URL이 예상 주소라는 사실만으로 공개 성공 처리하지 않습니다.
+4. 웹 접속·제목·PDF 다운로드가 정상임을 확인한 다음 아래 QR 발급 절차를 진행합니다.
+
+배포 workflow는 활성화되어 있지 않은 Pages를 권한 없이 만들려고 시도하지 않고, 설정이 없는 경우 명확한 오류 메시지를 남기도록 수정했습니다. 이 변경 자체로 Pages가 자동 활성화되지는 않습니다.
+
 ## 로컬 검증 후 업로드
 
 ```bash

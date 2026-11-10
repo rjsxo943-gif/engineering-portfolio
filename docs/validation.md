@@ -1,3 +1,13 @@
+# 2026-11-10 GitHub 저장소 후속 점검 (배포 상태와 내부 링크)
+
+연결된 GitHub 저장소의 `main` HEAD는 `b5984cfd5136b1209d6964cf50b9e133bacbb79f`입니다. 원격 Actions 조회에서 Pages 실행은 최초 실패 1건(2026-11-09)만 확인되며, 이후 커밋들은 `[skip ci]`로 인해 배포 재실행 내역이 없습니다. 홈페이지 HTTP 200과 Pages 실제 배포는 **확인되지 않았습니다**. 따라서 `site.public_url=null`, `qr_status=QR_PENDING` 상태를 유지합니다.
+
+GitHub에서 README와 `docs/experience/`의 Markdown 9개 및 원격 Git 트리를 조회해 로컬 상대경로 링크 62개를 대조한 결과 **누락 대상 0개**였습니다. 같은 검사를 빌드 때 반복하도록 `scripts/check-links.mjs`를 추가하고 `npm run build`에 연결했습니다. 이는 기존 저장소 상태에 대한 원격 정적 점검이며, 추가한 빌드 단계와 Pages workflow를 원격 CI에서 실행해 통과한 결과는 아직 아닙니다.
+
+Pages workflow는 저장소 소유자가 Settings → Pages에서 Source를 GitHub Actions로 활성화했는지 먼저 확인하도록 변경했습니다. 설정이 없으면 안내와 함께 실패하며 QR을 조기 발행하지 않습니다. 전체 절차는 [배포 문서](deployment.md)에 있습니다.
+
+---
+
 # 미제공 사진 공개 표시 개선
 
 2026-11-09: 공개 웹·PDF에서 미제공 사진과 빈 갤러리를 생략했습니다. 실제 RF 공개 화면은 원래 야외 사진과 구분해 수록했고 기존 포스터는 유지했습니다. PDF를 9쪽으로 재생성하고 전체 페이지 넘침 검사를 통과했습니다.

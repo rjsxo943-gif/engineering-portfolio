@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "npm run check && npm run docs:check && tsc --noEmit && vite build",
+    "build": "npm run check && npm run docs:check && npm run links:check && tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "check": "node scripts/check.mjs",
     "pdf": "node scripts/pdf.mjs",
     "test": "node tests/browser.mjs",
     "qr": "node scripts/qr.mjs",
     "docs": "node scripts/reading-guide.mjs",
-    "docs:check": "node scripts/reading-guide.mjs --check"
+    "docs:check": "node scripts/reading-guide.mjs --check",
+    "links:check": "node scripts/check-links.mjs"
   },
   "devDependencies": {
     "@types/node": "22.19.0",

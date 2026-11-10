@@ -1,6 +1,6 @@
 # 유지보수
 
-README와 `docs/experience/`는 공개 JSON/YAML에서 생성합니다. 문안은 `src/content/portfolio.json`, README 요약·순서·PDF 안내는 `src/content/repository.json`, 링크·사진 경로는 `portfolio.config.yaml`에서 수정하고 `npm run docs`로 반영하세요. `npm run docs:check`는 생성 문서와 데이터의 불일치를 검사하며 빌드에도 포함됩니다. 생성된 Markdown을 직접 수정하면 다음 생성 때 덮어써집니다.
+README와 `docs/experience/`는 공개 JSON/YAML에서 생성합니다. 문안은 `src/content/portfolio.json`, README 요약·순서·PDF 안내는 `src/content/repository.json`, 링크·사진 경로는 `portfolio.config.yaml`에서 수정하고 `npm run docs`로 반영하세요. `npm run docs:check`는 생성 문서와 데이터의 불일치를 검사하며 빌드에도 포함됩니다. `npm run links:check`는 README와 경험 상세 문서의 로컬 파일 링크를 검사하여 삭제·이동된 이미지, PDF 및 문서 참조를 조기에 감지합니다. 외부 링크의 실제 접속 여부는 이 검사 범위가 아닙니다. 생성된 Markdown을 직접 수정하면 다음 생성 때 덮어써집니다.
 
 저장소 QR은 `site.repository_url`을 가리키며, 홈페이지 QR의 `site.public_url`·`qr_status`와 구분합니다. 이번에 수록한 저장소 QR은 PNG/SVG 스캔을 검증한 파일입니다.
 
